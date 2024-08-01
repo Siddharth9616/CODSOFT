@@ -26,13 +26,11 @@ def generate_password(min_length, number=True, special_characters=True):
         elif new_char in special:
             has_special = True
 
-    # Ensure password meets criteria
     if number and not has_number:
         pwd.append(random.choice(digits))
     if special_characters and not has_special:
         pwd.append(random.choice(special))
 
-    # Shuffle the list to avoid the first characters always being in the same character type order
     random.shuffle(pwd)
 
     return ''.join(pwd)
